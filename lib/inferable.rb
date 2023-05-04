@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
-require "active_support"
-require "active_record"
-require_relative "inferable/version"
+require "inferable/engine"
+require_dependency "active_support"
+require_dependency "active_record"
 
 # acts_as_inferable.rb
 module ActiveRecord
@@ -38,5 +36,3 @@ module Inferable
 
   end
 end
-
-
