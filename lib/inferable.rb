@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
+require "inferable/engine"
 require "active_support"
 require "active_record"
-require_relative "inferable/version"
 
 # acts_as_inferable.rb
 module ActiveRecord
@@ -15,11 +13,6 @@ module ActiveRecord
 end
 
 module Inferable
-  class PendingRecord < ActiveRecord::Base
-    belongs_to :inferable, polymorphic: true, optional: true
-    self.table_name = "inferable_pending_records"
-  end
-
   module Entity
     extend ActiveSupport::Concern
     included do
@@ -38,5 +31,3 @@ module Inferable
 
   end
 end
-
-
