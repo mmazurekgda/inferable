@@ -1,6 +1,6 @@
 require "inferable/engine"
-require_dependency "active_support"
-require_dependency "active_record"
+require "active_support"
+require "active_record"
 
 # acts_as_inferable.rb
 module ActiveRecord
@@ -13,11 +13,6 @@ module ActiveRecord
 end
 
 module Inferable
-  class PendingRecord < ActiveRecord::Base
-    belongs_to :inferable, polymorphic: true, optional: true
-    self.table_name = "inferable_pending_records"
-  end
-
   module Entity
     extend ActiveSupport::Concern
     included do

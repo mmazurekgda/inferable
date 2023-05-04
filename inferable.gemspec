@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.version     = Inferable::VERSION
   spec.authors     = ["Michał Mazurek"]
   spec.email       = ["mmazurekgda@gmail.com"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of Inferable."
-  spec.description = "TODO: Description of Inferable."
+  spec.homepage    = "https://github.com/mmazurekgda/inferable"
+  spec.summary     = "https://github.com/mmazurekgda/inferable"
+  spec.description = "https://github.com/mmazurekgda/inferable"
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -28,4 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 5.2.6"
 
   spec.add_development_dependency "sqlite3"
+
+  spec.add_development_dependency "rspec-rails"
 end
