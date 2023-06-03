@@ -1,4 +1,4 @@
-name: Ruby
+name: Inferable Tests
 
 on:
   push:
@@ -8,9 +8,9 @@ on:
   pull_request:
 
 jobs:
-  build:
+  rspec:
     runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+    name: Build & Test
     strategy:
       matrix:
         ruby:
@@ -18,10 +18,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
-    - name: Run the default task
-      run: bundle exec rake
+    - name: Setup the database
+      env:
+        RAILS_ENV: test
+      run: bin/rails db:create db:schema:load
+    - name: Rspec
+      env:
+        RAILS_ENV: test
+      run: bundle exec rspec spec
