@@ -10,7 +10,7 @@ on:
 jobs:
   rspec:
     runs-on: ubuntu-latest
-    name: Rspec tests
+    name: Build & Test
     strategy:
       matrix:
         ruby:
@@ -26,3 +26,7 @@ jobs:
       env:
         RAILS_ENV: test
       run: bin/rails db:create db:schema:load
+    - name: Rspec
+        env:
+          RAILS_ENV: test
+        run: bundle exec rspec spec
