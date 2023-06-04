@@ -1,4 +1,4 @@
 Inferable::Engine.routes.draw do
-  get 'pending_records/updates', defaults: { time: Time.now - 1.month }
-  get 'pending_records/models', defaults: { time: Time.now - 1.month }
+  get :updates, controller: :home, defaults: { time: Time.now - Inferable::UPDATE_TIME }
+  get :index, controller: :pending_records, defaults: { time: Time.now - Inferable::UPDATE_TIME }
 end

@@ -13,6 +13,7 @@ module ActiveRecord
 end
 
 module Inferable
+  UPDATE_TIME = 1.month.freeze
   module Entity
     extend ActiveSupport::Concern
     included do
@@ -28,6 +29,5 @@ module Inferable
     def any_feature_changed?
       features.any? { |feature| saved_change_to_attribute? feature }
     end
-
   end
 end
